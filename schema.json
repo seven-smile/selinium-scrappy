@@ -1,0 +1,35 @@
+{
+  "base_url": "string",
+  "main_pages": [
+    {
+      "url": "string",
+      "title": "string",
+      "content_sections": [
+        {
+          "title": "string",
+          "text_content": "string",
+          "links": [
+            {
+              "text": "string",
+              "url": "string"
+            }
+          ]
+        }
+      ],
+      "downloads": [
+        {
+          "file_name": "string",
+          "file_type": "string",
+          "file_size": "string",
+          "link": "string"
+        }
+      ]
+    }
+  ],
+  "contact_information": {
+    "email": "string",
+    "phone": "string",
+    "fax": "string",
+    "address": "string"
+  }
+}

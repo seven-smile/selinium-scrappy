@@ -1,0 +1,905 @@
+{
+  "site_overview": {
+    "homepage": {
+      "title": "Home",
+      "header_menu": [],
+      "sections": [
+        {
+          "section_title": "Untitled Section",
+          "content": "Language: English\nA A A",
+          "links": []
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "",
+          "links": [
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/"
+            },
+            {
+              "text": "",
+              "url": "javascript:S3031AEBB_Submit()"
+            }
+          ]
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "",
+          "links": [
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/About-Us.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/General-Information.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/Organigram.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/contact_us/Pages/Contact-Us.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/Whistleblower.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/contact_us/Pages/Contact-Us.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/IRD-Services-Online-Individual-Taxpayers.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/IRD-Services-Online-Tax-Practitioners-and-Corporate-Taxpayers.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/IRD-Services-Online-Employers.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://taxation.gov.mt/notaries/"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/IRD-Services-Data-Providers.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/itu/Pages/Exchange-of-Information.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/VAT-Online-Services.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/MOSS-OSS.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/Central-Electronic-System-of-Payment-information-(CESOP).aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/CfR-Services-Online-Form.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://www.servizz.gov.mt/en/Pages/Tax-and-Finance/Taxation/Tax/WEB2401/default.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/individuals/Pages/Taxation-for-Individuals.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/Small%20Businesses/Pages/SME-Registration.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/Corporate/Pages/Corporate-Tax.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/Employers/Pages/Employers-Registration.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/itu/Pages/International-Taxation.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/tcu/Pages/Tax-Compliance-Unit-(TCU)---About-Us.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/legal-technical/Pages/Legal-Technical.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/legal-technical/Pages/Legislative-Developments.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/individuals/Pages/Public-Consultation.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/vat/general_information/Pages/default.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/vat/technical_information/Pages/default.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/vat/guidelines_to_certain_VAT_Procedures/Pages/default.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/vat/legislation-and-LNs/Pages/default.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/vat/eco_information/Pages/default.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/property_shares_transfers/Pages/Buying-a-Property.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/property_shares_transfers/Pages/Selling-a-Property.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/property_shares_transfers/Pages/Inheritance-Tax.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/property_shares_transfers/Pages/Share-Transfers.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/property_shares_transfers/Pages/Acquisition-of-Immovable-Property.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://taxation.gov.mt/notaries/Account"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/property_shares_transfers/Pages/Property_Shares_Downloads.aspx"
+            },
+            {
+              "text": "",
+              "url": "http://customs.gov.mt/"
+            }
+          ]
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "",
+          "links": [
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/_layouts/MITA.EGov.Portal/EIdLogin.aspx?ReturnUrl=%2fen%2fPages%2fHome.aspx"
+            }
+          ]
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "",
+          "links": []
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "12345",
+          "links": [
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/onlinepayments/Pages/Online-Payments.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/Business-First.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2025/Possible-sporadic-unavailability-of-the-Taxation-On-Line-Services.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Important-Notice-to-Tax-Representatives.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/The-MTCA-Annual-Report-for-2023-is-now-available.aspx"
+            },
+            {
+              "text": "1",
+              "url": "https://cfr.gov.mt/en/Pages/Home.aspx#0"
+            },
+            {
+              "text": "2",
+              "url": "https://cfr.gov.mt/en/Pages/Home.aspx#1"
+            },
+            {
+              "text": "3",
+              "url": "https://cfr.gov.mt/en/Pages/Home.aspx#2"
+            },
+            {
+              "text": "4",
+              "url": "https://cfr.gov.mt/en/Pages/Home.aspx#3"
+            },
+            {
+              "text": "5",
+              "url": "https://cfr.gov.mt/en/Pages/Home.aspx#4"
+            }
+          ]
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "LEARN MORE\n12345",
+          "links": [
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/onlinepayments/Pages/Online-Payments.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/Business-First.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2025/Possible-sporadic-unavailability-of-the-Taxation-On-Line-Services.aspx"
+            },
+            {
+              "text": "LEARN MORE",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Important-Notice-to-Tax-Representatives.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/The-MTCA-Annual-Report-for-2023-is-now-available.aspx"
+            },
+            {
+              "text": "1",
+              "url": "https://cfr.gov.mt/en/Pages/Home.aspx#0"
+            },
+            {
+              "text": "2",
+              "url": "https://cfr.gov.mt/en/Pages/Home.aspx#1"
+            },
+            {
+              "text": "3",
+              "url": "https://cfr.gov.mt/en/Pages/Home.aspx#2"
+            },
+            {
+              "text": "4",
+              "url": "https://cfr.gov.mt/en/Pages/Home.aspx#3"
+            },
+            {
+              "text": "5",
+              "url": "https://cfr.gov.mt/en/Pages/Home.aspx#4"
+            }
+          ]
+        },
+        {
+          "section_title": "Latest News",
+          "content": "Latest News\n Possible sporadic unavailability of the Taxation On-Line Services\n Guidelines on certain zero VAT rated supplies\n Important Notice to Tax Representatives - Supplementary Tax Return Document\n Important Notice\n New important notice to economic operators for beer\n Guidance Note - IFRS 17\n Scheduled Downtime for Business First Application Forms\n Guidance note on Article 14(1)(m) of the Income Tax Act\n Updated VAT guidelines on the VAT treatment of Health Care Services\n Possible sporadic unavailability of the Taxation On-Line Services\n Further maintenance\n Multiple disruptions on the Taxation on-line Services\n Business Startup and Reactivation Forms – Downtime notice\n Guidelines on the VAT exemption on other scheduled sea transport of passengers\n Extension of the Online Personal Income Tax return deadline\n MyTax - Minimal disruption of service\n Extension of Personal Income Tax return deadline\n Year of Assessment 2024 Tax Return for Companies\n Scheduled System Degradation\n Possible Degradation of Service\n Clarification Regarding Art 74 of the VAT Act\n Personal Income Tax Return – Year of Assessment 2024, Basis 2023\n The Commissioner for Revenue notifies that the next due date is 15th January 2025 for submission of VAT Tax Returns together with any payments  \n The Commissioner for Revenue notifies that the next due date is 15th February 2025 for submission of Environmental Contribution on Accommodation Tax Returns with any payments\n \nPERSONAL SERVICES\nMy Account\nOnline Statements\nCORPORATE SERVICES (TAX PRACTITIONERS, EMPLOYERS, VAT DELEGATED)\nAuthorisation of Tax Representative\nIncome Tax Services Online\nVAT Services\nAccess Manager\nMOSS\nSubmit FS5 Online\nNOTARY SERVICES\nNotary Online Services\n\n\n\nUSEFUL LINKS\nGOV.mt\nMinistry for Finance and Employment\nEU Tax and Customs\nFreedom of Information\nTaxpayer Charter\nCFR News\nCfR Document Verifier\nLEGAL & TECHNICAL\nLegal & Technical Page",
+          "links": [
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/itu/Pages/Crypto-Asset-Reporting-Framework-(CARF).aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/itu/Pages/Crypto-Asset-Reporting-Framework-(CARF).aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Guidance-Note---IFRS-17.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Guidance-Note---IFRS-17.aspx"
+            },
+            {
+              "text": "Possible sporadic unavailability of the Taxation On-Line Services",
+              "url": "https://cfr.gov.mt/en/News/Pages/2025/Possible-sporadic-unavailability-of-the-Taxation-On-Line-Services.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/vat/guidelines_to_certain_VAT_Procedures/Documents/Guidelines%20on%20certain%20Zero%20VAT%20Rated%20Supplies.pdf"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/vat/guidelines_to_certain_VAT_Procedures/Documents/Guidelines%20on%20certain%20Zero%20VAT%20Rated%20Supplies.pdf"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Guidance-Note---IFRS-17.aspx"
+            },
+            {
+              "text": "Guidelines on certain zero VAT rated supplies",
+              "url": "https://cfr.gov.mt/en/vat/guidelines_to_certain_VAT_Procedures/Documents/Guidelines%20on%20certain%20Zero%20VAT%20Rated%20Supplies.pdf"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Important-Notice-to-Tax-Representatives.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Important-Notice.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Guidance-Note---IFRS-17.aspx"
+            },
+            {
+              "text": "Important Notice to Tax Representatives - Supplementary Tax Return Document",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Important-Notice-to-Tax-Representatives.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Important-Notice.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Guidance-Note---IFRS-17.aspx"
+            },
+            {
+              "text": "Important Notice",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Important-Notice.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Guidance-Note---IFRS-17.aspx"
+            },
+            {
+              "text": "New important notice to economic operators for beer",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/new-important-notice-to-economic-operators-for-beer.aspx"
+            },
+            {
+              "text": "Guidance Note - IFRS 17",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Guidance-Note---IFRS-17.aspx"
+            },
+            {
+              "text": "Scheduled Downtime for Business First Application Forms",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Jobsplus-Database-Maintenance.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Jobsplus-Database-Maintenance.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "Guidance note on Article 14(1)(m) of the Income Tax Act",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Guidance-note-on-Article-14(1)(m)-of-the-Income-Tax-Act.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Government-websites.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Possible-sporadic-unavailability-of-the-Taxation-On-Line-Services-.aspx"
+            },
+            {
+              "text": "Updated VAT guidelines on the VAT treatment of Health Care Services",
+              "url": "https://cfr.gov.mt/en/vat/guidelines_to_certain_VAT_Procedures/Documents/Guidelines%20-%20Health%20Care%20(final%20reviewed).pdf"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/vat/guidelines_to_certain_VAT_Procedures/Documents/Guidelines%20-%20Health%20Care%20(final%20reviewed).pdf"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Government-websites.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "Possible sporadic unavailability of the Taxation On-Line Services",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Possible-sporadic-unavailability-of-the-Taxation-On-Line-Services-.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Possible-sporadic-unavailability-of-the-Taxation-On-Line-Services-.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Further-maintenance.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Government-websites.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Multiple-disruptions-on-the-Taxation-on-line-Services.aspx"
+            },
+            {
+              "text": "Further maintenance",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Further-maintenance.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Government-websites.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Business-Startup-and-Reactivation-Forms-%E2%80%93-Downtime-notice.aspx"
+            },
+            {
+              "text": "Multiple disruptions on the Taxation on-line Services",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Multiple-disruptions-on-the-Taxation-on-line-Services.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Government-websites.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/vat/legislation-and-LNs/Documents/Guidelines%20-%20VAT%20Exemption%20on%20other%20scheduled%20sea%20transport%20of%20passengers%20(final).pdf"
+            },
+            {
+              "text": "Business Startup and Reactivation Forms – Downtime notice",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Business-Startup-and-Reactivation-Forms-%E2%80%93-Downtime-notice.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/vat/legislation-and-LNs/Documents/Guidelines%20-%20VAT%20Exemption%20on%20other%20scheduled%20sea%20transport%20of%20passengers%20(final).pdf"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Extension-of-the-Online-Personal-Income-Tax-return-deadline.aspx"
+            },
+            {
+              "text": "Guidelines on the VAT exemption on other scheduled sea transport of passengers",
+              "url": "https://cfr.gov.mt/en/vat/legislation-and-LNs/Documents/Guidelines%20-%20VAT%20Exemption%20on%20other%20scheduled%20sea%20transport%20of%20passengers%20(final).pdf"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Minimal-disruption.aspx"
+            },
+            {
+              "text": "Extension of the Online Personal Income Tax return deadline",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Extension-of-the-Online-Personal-Income-Tax-return-deadline.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "MyTax - Minimal disruption of service",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Minimal-disruption.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "Extension of Personal Income Tax return deadline",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Extension-of-Personal-Income-Tax-return-deadline.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Extension-of-Personal-Income-Tax-return-deadline.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Year-of-Assessment-2024-Tax-Return-for-Companies.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Scheduled-System-Degradation.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "Year of Assessment 2024 Tax Return for Companies",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Year-of-Assessment-2024-Tax-Return-for-Companies.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/legal-technical/Pages/Tax-Guidelines.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Possible-Degradation-of-Service_2.aspx"
+            },
+            {
+              "text": "Scheduled System Degradation",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Scheduled-System-Degradation.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/legal-technical/Documents/Clarification%20regarding%20Article%2074%20of%20the%20VAT%20Act.pdf"
+            },
+            {
+              "text": "Possible Degradation of Service",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Possible-Degradation-of-Service_2.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Personal-Income-Tax-Return-%E2%80%93-Year-of-Assessment-2024,-Basis-2023.aspx"
+            },
+            {
+              "text": "Clarification Regarding Art 74 of the VAT Act",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/legal-technical/Documents/Clarification%20regarding%20Article%2074%20of%20the%20VAT%20Act.pdf"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2022/Year-of-Assessment-2022-Tax-Returns-for-Fiscal-Units.aspx"
+            },
+            {
+              "text": "Personal Income Tax Return – Year of Assessment 2024, Basis 2023",
+              "url": "https://cfr.gov.mt/en/News/Pages/2024/Personal-Income-Tax-Return-%E2%80%93-Year-of-Assessment-2024,-Basis-2023.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/News/Pages/2023/Update-of-the-Guidelines-in-Relation-to-the-Notional-Interest-Deduction-(NID)-Rules.aspx"
+            },
+            {
+              "text": "My Account",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/My-Account.aspx"
+            },
+            {
+              "text": "Online Statements",
+              "url": "https://mytax.mtca.gov.mt/"
+            },
+            {
+              "text": "Authorisation of Tax Representative",
+              "url": "https://taxation.gov.mt/AccessManager"
+            },
+            {
+              "text": "Income Tax Services Online",
+              "url": "https://taxation.gov.mt/taxationweblauncher/eidauth/irdnet/2"
+            },
+            {
+              "text": "VAT Services",
+              "url": "https://taxation.gov.mt/taxationweblauncher/eidAuthPro/vatservices"
+            },
+            {
+              "text": "Access Manager",
+              "url": "https://taxation.gov.mt/taxationweblauncher/eidAuth/vataccessmanager/2"
+            },
+            {
+              "text": "MOSS",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/MOSS.aspx"
+            },
+            {
+              "text": "Submit FS5 Online",
+              "url": "https://taxation.gov.mt/irdnet/fs5iform.aspx"
+            },
+            {
+              "text": "Notary Online Services",
+              "url": "https://taxation.gov.mt/notaries"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/Registrations-VAT-PE.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/Activations-of-PE-VAT.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/eServices/Documents/VAT_Return_Online_Guidelines.pdf"
+            },
+            {
+              "text": "",
+              "url": "https://ratethepublicservice.gov.mt/"
+            },
+            {
+              "text": "",
+              "url": "https://publicservice.gov.mt/mt/Pages/Home.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://www.servizz.gov.mt/en/Pages/default.aspx"
+            },
+            {
+              "text": "GOV.mt",
+              "url": "http://gov.mt/"
+            },
+            {
+              "text": "Ministry for Finance and Employment",
+              "url": "https://finance.gov.mt/"
+            },
+            {
+              "text": "EU Tax and Customs",
+              "url": "http://ec.europa.eu/taxation_customs/index_en"
+            },
+            {
+              "text": "Freedom of Information",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/Freedom-of-Information.aspx"
+            },
+            {
+              "text": "Taxpayer Charter",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/Taxpayer-Charter.aspx"
+            },
+            {
+              "text": "CFR News",
+              "url": "https://cfr.gov.mt/en/News/Pages/Latest-News.aspx"
+            },
+            {
+              "text": "CfR Document Verifier",
+              "url": "https://taxation.gov.mt/taxation.web/DocumentVerifier/index"
+            },
+            {
+              "text": "Legal & Technical Page",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/legal-technical/Pages/Legal-Technical.aspx"
+            },
+            {
+              "text": "",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/Quality-Label.aspx"
+            }
+          ]
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "PERSONAL SERVICES\nMy Account\nOnline Statements",
+          "links": [
+            {
+              "text": "My Account",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/My-Account.aspx"
+            },
+            {
+              "text": "Online Statements",
+              "url": "https://mytax.mtca.gov.mt/"
+            }
+          ]
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "CORPORATE SERVICES (TAX PRACTITIONERS, EMPLOYERS, VAT DELEGATED)\nAuthorisation of Tax Representative\nIncome Tax Services Online\nVAT Services\nAccess Manager\nMOSS\nSubmit FS5 Online",
+          "links": [
+            {
+              "text": "Authorisation of Tax Representative",
+              "url": "https://taxation.gov.mt/AccessManager"
+            },
+            {
+              "text": "Income Tax Services Online",
+              "url": "https://taxation.gov.mt/taxationweblauncher/eidauth/irdnet/2"
+            },
+            {
+              "text": "VAT Services",
+              "url": "https://taxation.gov.mt/taxationweblauncher/eidAuthPro/vatservices"
+            },
+            {
+              "text": "Access Manager",
+              "url": "https://taxation.gov.mt/taxationweblauncher/eidAuth/vataccessmanager/2"
+            },
+            {
+              "text": "MOSS",
+              "url": "https://cfr.gov.mt/en/eServices/Pages/MOSS.aspx"
+            },
+            {
+              "text": "Submit FS5 Online",
+              "url": "https://taxation.gov.mt/irdnet/fs5iform.aspx"
+            }
+          ]
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "NOTARY SERVICES\nNotary Online Services",
+          "links": [
+            {
+              "text": "Notary Online Services",
+              "url": "https://taxation.gov.mt/notaries"
+            }
+          ]
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "USEFUL LINKS\nGOV.mt\nMinistry for Finance and Employment\nEU Tax and Customs\nFreedom of Information\nTaxpayer Charter\nCFR News\nCfR Document Verifier",
+          "links": [
+            {
+              "text": "GOV.mt",
+              "url": "http://gov.mt/"
+            },
+            {
+              "text": "Ministry for Finance and Employment",
+              "url": "https://finance.gov.mt/"
+            },
+            {
+              "text": "EU Tax and Customs",
+              "url": "http://ec.europa.eu/taxation_customs/index_en"
+            },
+            {
+              "text": "Freedom of Information",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/Freedom-of-Information.aspx"
+            },
+            {
+              "text": "Taxpayer Charter",
+              "url": "https://cfr.gov.mt/en/cfr/Pages/Taxpayer-Charter.aspx"
+            },
+            {
+              "text": "CFR News",
+              "url": "https://cfr.gov.mt/en/News/Pages/Latest-News.aspx"
+            },
+            {
+              "text": "CfR Document Verifier",
+              "url": "https://taxation.gov.mt/taxation.web/DocumentVerifier/index"
+            }
+          ]
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "LEGAL & TECHNICAL\nLegal & Technical Page",
+          "links": [
+            {
+              "text": "Legal & Technical Page",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/legal-technical/Pages/Legal-Technical.aspx"
+            }
+          ]
+        },
+        {
+          "section_title": "Untitled Section",
+          "content": "© Government of Malta 2024\nSite Map Data Protection Accessibility Statement Contact Us FAQs Opening Hours\n     ",
+          "links": [
+            {
+              "text": "Site Map",
+              "url": "https://cfr.gov.mt/en/Documents/sitemap.xml"
+            },
+            {
+              "text": "Data Protection",
+              "url": "https://cfr.gov.mt/en/gdpr/Pages/Data-Protection-Policy.aspx"
+            },
+            {
+              "text": "Accessibility Statement",
+              "url": "https://finance.gov.mt/en/Pages/Accessibility-Statement.aspx"
+            },
+            {
+              "text": "Contact Us",
+              "url": "https://cfr.gov.mt/en/inlandrevenue/contact_us/Pages/Contact-Us.aspx"
+            },
+            {
+              "text": "FAQs",
+              "url": "https://cfr.gov.mt/en/faqs/Pages/FAQs.aspx"
+            },
+            {
+              "text": "Opening Hours",
+              "url": "https://cfr.gov.mt/en/contactus/Pages/Taxpayer-Service-Servizz-gov.aspx"
+            }
+          ]
+        }
+      ]
+    },
+    "other_pages": []
+  },
+  "global_links": [
+    {
+      "link_text": "Site Map",
+      "url": "https://cfr.gov.mt/en/Documents/sitemap.xml"
+    },
+    {
+      "link_text": "Data Protection",
+      "url": "https://cfr.gov.mt/en/gdpr/Pages/Data-Protection-Policy.aspx"
+    },
+    {
+      "link_text": "Accessibility Statement",
+      "url": "https://finance.gov.mt/en/Pages/Accessibility-Statement.aspx"
+    },
+    {
+      "link_text": "Contact Us",
+      "url": "https://cfr.gov.mt/en/inlandrevenue/contact_us/Pages/Contact-Us.aspx"
+    },
+    {
+      "link_text": "FAQs",
+      "url": "https://cfr.gov.mt/en/faqs/Pages/FAQs.aspx"
+    },
+    {
+      "link_text": "Opening Hours",
+      "url": "https://cfr.gov.mt/en/contactus/Pages/Taxpayer-Service-Servizz-gov.aspx"
+    }
+  ],
+  "contact_information": {
+    "email": "",
+    "phone": "",
+    "fax": "",
+    "address": "© Government of Malta 2024"
+  },
+  "downloads": [
+    {
+      "file_name": "Unknown",
+      "file_type": "pdf",
+      "file_size": "N/A",
+      "link": "https://cfr.gov.mt/en/vat/guidelines_to_certain_VAT_Procedures/Documents/Guidelines%20on%20certain%20Zero%20VAT%20Rated%20Supplies.pdf"
+    },
+    {
+      "file_name": "Guidelines on certain zero VAT rated supplies",
+      "file_type": "pdf",
+      "file_size": "N/A",
+      "link": "https://cfr.gov.mt/en/vat/guidelines_to_certain_VAT_Procedures/Documents/Guidelines%20on%20certain%20Zero%20VAT%20Rated%20Supplies.pdf"
+    },
+    {
+      "file_name": "Updated VAT guidelines on the VAT treatment of Health Care Services",
+      "file_type": "pdf",
+      "file_size": "N/A",
+      "link": "https://cfr.gov.mt/en/vat/guidelines_to_certain_VAT_Procedures/Documents/Guidelines%20-%20Health%20Care%20(final%20reviewed).pdf"
+    },
+    {
+      "file_name": "Unknown",
+      "file_type": "pdf",
+      "file_size": "N/A",
+      "link": "https://cfr.gov.mt/en/vat/guidelines_to_certain_VAT_Procedures/Documents/Guidelines%20-%20Health%20Care%20(final%20reviewed).pdf"
+    },
+    {
+      "file_name": "Guidelines on the VAT exemption on other scheduled sea transport of passengers",
+      "file_type": "pdf",
+      "file_size": "N/A",
+      "link": "https://cfr.gov.mt/en/vat/legislation-and-LNs/Documents/Guidelines%20-%20VAT%20Exemption%20on%20other%20scheduled%20sea%20transport%20of%20passengers%20(final).pdf"
+    },
+    {
+      "file_name": "Clarification Regarding Art 74 of the VAT Act",
+      "file_type": "pdf",
+      "file_size": "N/A",
+      "link": "https://cfr.gov.mt/en/inlandrevenue/legal-technical/Documents/Clarification%20regarding%20Article%2074%20of%20the%20VAT%20Act.pdf"
+    },
+    {
+      "file_name": "Unknown",
+      "file_type": "pdf",
+      "file_size": "N/A",
+      "link": "https://cfr.gov.mt/en/eServices/Documents/VAT_Return_Online_Guidelines.pdf"
+    }
+  ]
+}
