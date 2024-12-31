@@ -27,6 +27,52 @@ from urllib.parse import urljoin, urlparse
 import atexit
 import signal
 import sys
+import requests
+from bs4 import BeautifulSoup
+
+def get_free_proxies():
+    try:
+        url = "https://hide.mn/en/proxy-list/"
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        proxies = []
+        proxy_table = soup.find('table')
+        if proxy_table and proxy_table.tbody:
+            for row in proxy_table.tbody.find_all('tr'):
+                columns = row.find_all('td')
+                if len(columns) >= 7:
+                    ip = columns[0].text.strip()
+                    port = columns[1].text.strip()
+                    https = columns[6].text.strip()
+                    if https == 'yes':
+                        proxies.append(f"{ip}:{port}")
+        return proxies
+    except Exception as e:
+        print(f"Error fetching proxies: {e}")
+        return []
+
+def test_proxy(proxy):
+    try:
+        response = requests.get(
+            'https://www.google.com',
+            proxies={'https': f'https://{proxy}'},
+            timeout=5
+        )
+        return response.status_code == 200
+    except:
+        return False
+
+def get_working_proxy():
+    proxies = get_free_proxies()
+    if not proxies:
+        return None
+    random.shuffle(proxies)
+    for proxy in proxies:
+        print(f"Testing proxy: {proxy}")
+        if test_proxy(proxy):
+            print(f"Found working proxy: {proxy}")
+            return proxy
+    return None
 
 def signal_handler(sig, frame):
     print('\nCleaning up before exit...')
@@ -39,48 +85,35 @@ def cleanup_driver(driver):
         pass
 
 def normalize_url(url, base_url):
-    """Normalize URL to avoid duplicates"""
     if not url:
         return None
-    # Remove fragments
     url = url.split('#')[0]
-    # Remove trailing slash
     url = url.rstrip('/')
-    # Ensure URL is absolute
     if not url.startswith('http'):
         url = urljoin(base_url, url)
     return url
 
 def is_valid_url(url, base_domain):
-    """Check if URL is valid and belongs to the same domain"""
     if not url:
         return False
     try:
-        # Normalize URL first
         url = normalize_url(url, base_domain)
         if not url:
             return False
-
         parsed_url = urlparse(url)
         parsed_base = urlparse(base_domain)
-
-        # Check if domains match
         if parsed_url.netloc != parsed_base.netloc:
             return False
-
-        # Filter out non-HTML resources
         exclude_patterns = [
-            '.pdf', '.doc', '.docx', '.xls', '.xlsx',
-            'javascript:', 'mailto:', 'tel:', 'fax:',
-            'whatsapp:', 'sms:', '#'
+            # '.pdf', '.doc', '.docx', '.xls', '.xlsx',
+            # 'javascript:', 'mailto:', 'tel:', 'fax:',
+            # 'whatsapp:', 'sms:', '#'
         ]
-
         return not any(pattern in url.lower() for pattern in exclude_patterns)
     except:
         return False
 
 def get_file_details(link_element):
-    """Extract file details from download links"""
     href = link_element.get_attribute('href') or ""
     file_name = link_element.text.strip() or href.split('/')[-1]
     file_type = href.split('.')[-1] if '.' in href else "Unknown"
@@ -92,62 +125,62 @@ def get_file_details(link_element):
     }
 
 def random_delay():
-    """Add random delay between requests"""
     delay = random.uniform(3, 7)
     print(f"Waiting for {delay:.2f} seconds...")
     time.sleep(delay)
 
-
 def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
-    """Scrape content from a single page"""
     if url in visited_urls:
         return None
-
     if retry_count >= 3:
         print(f"Max retries reached for {url}, skipping...")
         return None
-
     print(f"Scraping page: {url} (attempt {retry_count + 1})")
-
     try:
         driver.get(url)
         random_delay()
-
-        # Print page title for debugging
         print(f"Page title: {driver.title}")
+        print(f"Page content: {driver.content}")
 
-        # Check for Cloudflare block
         if "Attention Required! | Cloudflare" in driver.title:
-            print(f"Cloudflare block detected on {url}, waiting and retrying...")
-            time.sleep(10)  # Wait longer before retry
-            driver.delete_all_cookies()
-            return scrape_page_content(driver, wait, url, visited_urls, retry_count + 1)
+            print(f"Cloudflare block detected on {url}, trying new proxy...")
+            proxy = get_working_proxy()
+            if proxy:
+                driver.quit()
+                options = uc.ChromeOptions()
+                options.add_argument(f'--proxy-server={proxy}')
+                driver = uc.Chrome(options=options)
+                wait = WebDriverWait(driver, 30)
+                return scrape_page_content(driver, wait, url, visited_urls, retry_count + 1)
+            else:
+                print("No working proxy found, waiting and retrying...")
+                time.sleep(10)
+                return scrape_page_content(driver, wait, url, visited_urls, retry_count + 1)
 
         visited_urls.add(url)
-
         page_data = {
             "url": url,
             "title": driver.title,
-            "content_sections": [],
+            "content_sections": [driver.body],
             "downloads": [],
-            "navigation_links": []  # New field for navigation links
+            "Nav_368": [],
+            "tbody" : [],
+            "content" : [],
         }
 
-        # Wait for body and links to be present
         try:
             wait.until(EC.presence_of_element_located((By.TAG_NAME, "body")))
-
-            # Try to find navigation menu first
             nav_selectors = [
                 "#zz1_TopNavigationMenu", ".ms-topNavigationMenu",
                 "nav", "#navigation", ".navigation",
                 "#menu", ".menu", "#nav", ".nav",
-                ".top-nav", "#topnav"
+                ".top-nav", "#topnav", "topNav", "Nav_368_",
+                "heading","menuItem", "top",
             ]
 
             for selector in nav_selectors:
                 try:
-                    nav_menu = driver.find_element(By.CSS_SELECTOR, selector)
+                    nav_menu = driver.find_element(By.ID, selector)
                     nav_links = nav_menu.find_elements(By.TAG_NAME, "a")
                     for link in nav_links:
                         try:
@@ -163,10 +196,10 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
                 except:
                     continue
 
-            # Get main content
             main_selectors = [
                 "main", ".main-content", "#main", "article",
-                ".content", "#content", ".page-content", "body"
+                ".content", "#content", ".page-content", "body",
+                 "header", "s4-ca, WebPartWPQ2"
             ]
 
             main_content = None
@@ -180,7 +213,6 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
                     continue
 
             if main_content:
-                # Get all text-containing elements
                 elements = main_content.find_elements(
                     By.XPATH, ".//*[normalize-space(text())][not(self::script)][not(self::style)]")
 
@@ -192,7 +224,6 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
 
                 for element in elements:
                     if element.tag_name.startswith('h'):
-                        # Save previous section if it has content
                         if current_section["text_content"] or current_section["links"]:
                             page_data["content_sections"].append(current_section.copy())
                         current_section = {
@@ -205,8 +236,6 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
                             text = element.text.strip()
                             if text:
                                 current_section["text_content"] += text + "\n"
-
-                            # Get links from this element
                             links = element.find_elements(By.TAG_NAME, "a")
                             for link in links:
                                 try:
@@ -221,14 +250,12 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
                         except:
                             continue
 
-                # Add the last section if it has content
                 if current_section["text_content"] or current_section["links"]:
                     page_data["content_sections"].append(current_section)
 
         except Exception as e:
             print(f"Error extracting content: {str(e)}")
 
-        # Get downloads
         try:
             download_links = driver.find_elements(
                 By.CSS_SELECTOR, "a[href$='.pdf'], a[href$='.doc'], a[href$='.docx'], a[href$='.xls'], a[href$='.xlsx']")
@@ -245,8 +272,15 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
     except Exception as e:
         print(f"Error accessing page {url}: {str(e)}")
         if retry_count < 3:
-            print(f"Retrying {url} after error...")
-            time.sleep(10)  # Wait longer after error
+            print(f"Retrying {url} after error with new proxy...")
+            proxy = get_working_proxy()
+            if proxy:
+                driver.quit()
+                options = uc.ChromeOptions()
+                options.add_argument(f'--proxy-server={proxy}')
+                driver = uc.Chrome(options=options)
+                wait = WebDriverWait(driver, 30)
+            time.sleep(10)
             return scrape_page_content(driver, wait, url, visited_urls, retry_count + 1)
         return None
 
@@ -260,8 +294,14 @@ def scrape_website():
         options.add_argument('--disable-notifications')
         options.add_argument('--disable-blink-features=AutomationControlled')
 
+        proxy = get_working_proxy()
+        if proxy:
+            print(f"Starting with proxy: {proxy}")
+            options.add_argument(f'--proxy-server={proxy}')
+        else:
+            print("No working proxy found, starting without proxy")
+
         driver = uc.Chrome(options=options)
-        # Register cleanup function
         atexit.register(cleanup_driver, driver)
         signal.signal(signal.SIGINT, signal_handler)
 
@@ -269,8 +309,7 @@ def scrape_website():
             "userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
         })
 
-        wait = WebDriverWait(driver, 30)  # Increased wait time
-
+        wait = WebDriverWait(driver, 30)
         base_url = "https://cfr.gov.mt/en/Pages/Home.aspx"
         visited_urls = set()
         urls_to_visit = {base_url}
@@ -286,24 +325,18 @@ def scrape_website():
             }
         }
 
-        # First scrape the homepage
         print("Starting with homepage...")
         home_data = scrape_page_content(driver, wait, base_url, visited_urls)
         if home_data:
             site_data["main_pages"].append(home_data)
 
-            # Process navigation links first
-            print("Processing navigation links...")
             for nav_link in home_data.get("navigation_links", []):
                 url = nav_link["url"]
                 if url and url.startswith(base_url):
                     normalized_url = normalize_url(url, base_url)
                     if normalized_url and normalized_url not in visited_urls:
                         urls_to_visit.add(normalized_url)
-                        print(f"Added navigation URL to queue: {normalized_url}")
 
-            # Then process all other links
-            print("Processing other links...")
             for section in home_data["content_sections"]:
                 for link in section["links"]:
                     url = link["url"]
@@ -311,13 +344,11 @@ def scrape_website():
                         normalized_url = normalize_url(url, base_url)
                         if normalized_url and normalized_url not in visited_urls:
                             urls_to_visit.add(normalized_url)
-                            print(f"Added content URL to queue: {normalized_url}")
 
         print(f"Found {len(urls_to_visit)} URLs to process")
         total_urls = len(urls_to_visit)
         processed_urls = 0
 
-        # Process remaining pages
         while urls_to_visit:
             current_url = urls_to_visit.pop()
             processed_urls += 1
@@ -329,7 +360,6 @@ def scrape_website():
                     site_data["main_pages"].append(page_data)
                     print(f"Successfully scraped: {current_url}")
 
-                    # Add new URLs from navigation links
                     for nav_link in page_data.get("navigation_links", []):
                         url = nav_link["url"]
                         if url and url.startswith(base_url):
@@ -337,9 +367,7 @@ def scrape_website():
                             if normalized_url and normalized_url not in visited_urls:
                                 urls_to_visit.add(normalized_url)
                                 total_urls = len(urls_to_visit) + processed_urls
-                                print(f"Added new navigation URL to queue: {normalized_url}")
 
-                    # Extract contact information if not already found
                     if not all(site_data["contact_information"].values()):
                         contact_text = " ".join([section["text_content"] for section in page_data["content_sections"]])
 
@@ -373,7 +401,7 @@ def scrape_website():
     finally:
         if driver:
             try:
-                atexit.unregister(cleanup_driver)  # Unregister cleanup if we're handling it here
+                atexit.unregister(cleanup_driver)
                 driver.quit()
             except:
                 pass
@@ -386,7 +414,7 @@ if __name__ == "__main__":
         with open('cfr_gov_mt_data.json', 'w', encoding='utf-8') as f:
             json.dump(site_data, f, indent=2, ensure_ascii=False)
         print("Scraping completed successfully!")
-        print(f"Total pages scraped: {len(site_data['main_pages'])}")
+        print(f"Total navigation sections: {len(site_data['navigation_sections'])}")
     except Exception as e:
         print(f"\nAn error occurred: {str(e)}")
     finally:
