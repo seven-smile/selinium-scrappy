@@ -13,9 +13,12 @@
 # print(driver.title)
 # driver.quit()
 
+
 # main.py
 
-import undetected_chromedriver as uc
+from selenium.webdriver import Chrome as uc
+from selenium.webdriver.chrome.options import Options
+from fake_useragent import UserAgent
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -30,37 +33,69 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 
+
+# def get_free_proxies():
+#     try:
+#         url = "https://hide.mn/en/proxy-list/"
+#         response = requests.get(url)
+#         soup = BeautifulSoup(response.text, 'html.parser')
+#         proxies = []
+#         proxy_table = soup.find('table')
+#         if proxy_table and proxy_table.tbody:
+#             for row in proxy_table.tbody.find_all('tr'):
+#                 columns = row.find_all('td')
+#                 if len(columns) >= 7:
+#                     ip = columns[0].text.strip()
+#                     port = columns[1].text.strip()
+#                     https = columns[6].text.strip()
+#                     if https == 'yes':
+#                         proxies.append(f"{ip}:{port}")
+#         return proxies
+#     except Exception as e:
+#         print(f"Error fetching proxies: {e}")
+#         return []
 def get_free_proxies():
-    try:
-        url = "https://hide.mn/en/proxy-list/"
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        proxies = []
-        proxy_table = soup.find('table')
-        if proxy_table and proxy_table.tbody:
-            for row in proxy_table.tbody.find_all('tr'):
-                columns = row.find_all('td')
-                if len(columns) >= 7:
-                    ip = columns[0].text.strip()
-                    port = columns[1].text.strip()
-                    https = columns[6].text.strip()
-                    if https == 'yes':
-                        proxies.append(f"{ip}:{port}")
-        return proxies
-    except Exception as e:
-        print(f"Error fetching proxies: {e}")
-        return []
+    res = requests.get(
+        "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=json"
+    )
+
+    proxies = res.json()["proxies"]
+
+    return proxies
+
+
+# def test_proxy(proxy):
+#     try:
+#         response = requests.get(
+#             "https://www.google.com", proxies={"https": f"https://{proxy}"}, timeout=5
+#         )
+#         return response.status_code == 200
+#     except:
+#         return False
+
 
 def test_proxy(proxy):
     try:
-        response = requests.get(
-            'https://www.google.com',
-            proxies={'https': f'https://{proxy}'},
-            timeout=5
+        # for protocol in protocols:
+        proxies = {
+            "http": f"{proxy["protocol"]}://{proxy["ip"]}:{proxy["port"]}",
+            "https": f"{proxy["protocol"]}://{proxy["ip"]}:{proxy["port"]}",
+        }
+        # print("waiting ", proxy["timeout"], " seconds")
+        res = requests.get(
+            "https://httpbin.org/ip", proxies=proxies, timeout=proxy["timeout"]
         )
-        return response.status_code == 200
-    except:
-        return False
+
+        res.raise_for_status()
+        print(res.json())
+        return True
+    except KeyboardInterrupt:
+        print("KeyboardInterrupt")
+        exit()
+    except Exception as e:
+        # print("Not working proxy")
+        pass
+
 
 def get_working_proxy():
     proxies = get_free_proxies()
@@ -68,15 +103,17 @@ def get_working_proxy():
         return None
     random.shuffle(proxies)
     for proxy in proxies:
-        print(f"Testing proxy: {proxy}")
+        # print(f"Testing proxy: {proxy}")
         if test_proxy(proxy):
             print(f"Found working proxy: {proxy}")
-            return proxy
+            return f"http://{proxy["ip"]}:{proxy["port"]}"
     return None
 
+
 def signal_handler(sig, frame):
-    print('\nCleaning up before exit...')
+    print("\nCleaning up before exit...")
     sys.exit(0)
+
 
 def cleanup_driver(driver):
     try:
@@ -84,14 +121,16 @@ def cleanup_driver(driver):
     except:
         pass
 
+
 def normalize_url(url, base_url):
     if not url:
         return None
-    url = url.split('#')[0]
-    url = url.rstrip('/')
-    if not url.startswith('http'):
+    url = url.split("#")[0]
+    url = url.rstrip("/")
+    if not url.startswith("http"):
         url = urljoin(base_url, url)
     return url
+
 
 def is_valid_url(url, base_domain):
     if not url:
@@ -113,21 +152,24 @@ def is_valid_url(url, base_domain):
     except:
         return False
 
+
 def get_file_details(link_element):
-    href = link_element.get_attribute('href') or ""
-    file_name = link_element.text.strip() or href.split('/')[-1]
-    file_type = href.split('.')[-1] if '.' in href else "Unknown"
+    href = link_element.get_attribute("href") or ""
+    file_name = link_element.text.strip() or href.split("/")[-1]
+    file_type = href.split(".")[-1] if "." in href else "Unknown"
     return {
         "file_name": file_name,
         "file_type": file_type,
         "file_size": "N/A",
-        "link": href
+        "link": href,
     }
+
 
 def random_delay():
     delay = random.uniform(3, 7)
     print(f"Waiting for {delay:.2f} seconds...")
     time.sleep(delay)
+
 
 def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
     if url in visited_urls:
@@ -140,42 +182,57 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
         driver.get(url)
         random_delay()
         print(f"Page title: {driver.title}")
-        print(f"Page content: {driver.content}")
+        # print(f"Page content: {driver.content}")
 
         if "Attention Required! | Cloudflare" in driver.title:
             print(f"Cloudflare block detected on {url}, trying new proxy...")
             proxy = get_working_proxy()
             if proxy:
                 driver.quit()
-                options = uc.ChromeOptions()
-                options.add_argument(f'--proxy-server={proxy}')
-                driver = uc.Chrome(options=options)
+                options = Op()
+                options.add_argument(f"--proxy-server={proxy}")
+                driver = uc(options=options)
                 wait = WebDriverWait(driver, 30)
-                return scrape_page_content(driver, wait, url, visited_urls, retry_count + 1)
+                return scrape_page_content(
+                    driver, wait, url, visited_urls, retry_count + 1
+                )
             else:
                 print("No working proxy found, waiting and retrying...")
                 time.sleep(10)
-                return scrape_page_content(driver, wait, url, visited_urls, retry_count + 1)
+                return scrape_page_content(
+                    driver, wait, url, visited_urls, retry_count + 1
+                )
 
         visited_urls.add(url)
         page_data = {
             "url": url,
             "title": driver.title,
-            "content_sections": [driver.body],
+            "content_sections": [driver.page_source],
             "downloads": [],
             "Nav_368": [],
-            "tbody" : [],
-            "content" : [],
+            "tbody": [],
+            "content": [],
         }
 
         try:
             wait.until(EC.presence_of_element_located((By.TAG_NAME, "body")))
             nav_selectors = [
-                "#zz1_TopNavigationMenu", ".ms-topNavigationMenu",
-                "nav", "#navigation", ".navigation",
-                "#menu", ".menu", "#nav", ".nav",
-                ".top-nav", "#topnav", "topNav", "Nav_368_",
-                "heading","menuItem", "top",
+                "#zz1_TopNavigationMenu",
+                ".ms-topNavigationMenu",
+                "nav",
+                "#navigation",
+                ".navigation",
+                "#menu",
+                ".menu",
+                "#nav",
+                ".nav",
+                ".top-nav",
+                "#topnav",
+                "topNav",
+                "Nav_368_",
+                "heading",
+                "menuItem",
+                "top",
             ]
 
             for selector in nav_selectors:
@@ -187,25 +244,33 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
                             href = link.get_attribute("href")
                             text = link.text.strip()
                             if href and text:
-                                page_data["navigation_links"].append({
-                                    "text": text,
-                                    "url": href
-                                })
+                                page_data["navigation_links"].append(
+                                    {"text": text, "url": href}
+                                )
                         except:
                             continue
                 except:
                     continue
 
             main_selectors = [
-                "main", ".main-content", "#main", "article",
-                ".content", "#content", ".page-content", "body",
-                 "header", "s4-ca, WebPartWPQ2"
+                "main",
+                ".main-content",
+                "#main",
+                "article",
+                ".content",
+                "#content",
+                ".page-content",
+                "body",
+                "header",
+                "s4-ca, WebPartWPQ2",
             ]
 
             main_content = None
             for selector in main_selectors:
                 try:
-                    main_content = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, selector)))
+                    main_content = wait.until(
+                        EC.presence_of_element_located((By.CSS_SELECTOR, selector))
+                    )
                     if main_content:
                         print(f"Found main content using selector: {selector}")
                         break
@@ -214,22 +279,20 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
 
             if main_content:
                 elements = main_content.find_elements(
-                    By.XPATH, ".//*[normalize-space(text())][not(self::script)][not(self::style)]")
+                    By.XPATH,
+                    ".//*[normalize-space(text())][not(self::script)][not(self::style)]",
+                )
 
-                current_section = {
-                    "title": "",
-                    "text_content": "",
-                    "links": []
-                }
+                current_section = {"title": "", "text_content": "", "links": []}
 
                 for element in elements:
-                    if element.tag_name.startswith('h'):
+                    if element.tag_name.startswith("h"):
                         if current_section["text_content"] or current_section["links"]:
                             page_data["content_sections"].append(current_section.copy())
                         current_section = {
                             "title": element.text.strip(),
                             "text_content": "",
-                            "links": []
+                            "links": [],
                         }
                     else:
                         try:
@@ -240,11 +303,10 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
                             for link in links:
                                 try:
                                     href = link.get_attribute("href")
-                                    if href and href.startswith('http'):
-                                        current_section["links"].append({
-                                            "text": link.text.strip(),
-                                            "url": href
-                                        })
+                                    if href and href.startswith("http"):
+                                        current_section["links"].append(
+                                            {"text": link.text.strip(), "url": href}
+                                        )
                                 except:
                                     continue
                         except:
@@ -258,7 +320,9 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
 
         try:
             download_links = driver.find_elements(
-                By.CSS_SELECTOR, "a[href$='.pdf'], a[href$='.doc'], a[href$='.docx'], a[href$='.xls'], a[href$='.xlsx']")
+                By.CSS_SELECTOR,
+                "a[href$='.pdf'], a[href$='.doc'], a[href$='.docx'], a[href$='.xls'], a[href$='.xlsx']",
+            )
             for link in download_links:
                 try:
                     page_data["downloads"].append(get_file_details(link))
@@ -276,38 +340,44 @@ def scrape_page_content(driver, wait, url, visited_urls, retry_count=0):
             proxy = get_working_proxy()
             if proxy:
                 driver.quit()
-                options = uc.ChromeOptions()
-                options.add_argument(f'--proxy-server={proxy}')
-                driver = uc.Chrome(options=options)
+                options = Options()
+                options.add_argument(f"--proxy-server={proxy}")
+                driver = uc(options=options)
                 wait = WebDriverWait(driver, 30)
             time.sleep(10)
             return scrape_page_content(driver, wait, url, visited_urls, retry_count + 1)
         return None
 
+
 def scrape_website():
     driver = None
     try:
-        options = uc.ChromeOptions()
-        options.add_argument('--disable-gpu')
-        options.add_argument('--disable-dev-shm-usage')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-notifications')
-        options.add_argument('--disable-blink-features=AutomationControlled')
+        ua = UserAgent().random
+        options = Options()
+        options.add_argument(f"user-agent={ua}")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-notifications")
+        options.add_argument("--disable-blink-features=AutomationControlled")
 
         proxy = get_working_proxy()
         if proxy:
             print(f"Starting with proxy: {proxy}")
-            options.add_argument(f'--proxy-server={proxy}')
+            options.add_argument(f"--proxy-server={proxy}")
         else:
             print("No working proxy found, starting without proxy")
 
-        driver = uc.Chrome(options=options)
+        driver = uc(options=options)
         atexit.register(cleanup_driver, driver)
         signal.signal(signal.SIGINT, signal_handler)
 
-        driver.execute_cdp_cmd('Network.setUserAgentOverride', {
-            "userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-        })
+        driver.execute_cdp_cmd(
+            "Network.setUserAgentOverride",
+            {
+                "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+        )
 
         wait = WebDriverWait(driver, 30)
         base_url = "https://cfr.gov.mt/en/Pages/Home.aspx"
@@ -317,12 +387,7 @@ def scrape_website():
         site_data = {
             "base_url": base_url,
             "main_pages": [],
-            "contact_information": {
-                "email": "",
-                "phone": "",
-                "fax": "",
-                "address": ""
-            }
+            "contact_information": {"email": "", "phone": "", "fax": "", "address": ""},
         }
 
         print("Starting with homepage...")
@@ -369,27 +434,50 @@ def scrape_website():
                                 total_urls = len(urls_to_visit) + processed_urls
 
                     if not all(site_data["contact_information"].values()):
-                        contact_text = " ".join([section["text_content"] for section in page_data["content_sections"]])
+                        contact_text = " ".join(
+                            [
+                                section["text_content"]
+                                for section in page_data["content_sections"]
+                            ]
+                        )
 
                         if not site_data["contact_information"]["email"]:
-                            email_match = re.search(r'[\w\.-]+@[\w\.-]+', contact_text)
+                            email_match = re.search(r"[\w\.-]+@[\w\.-]+", contact_text)
                             if email_match:
-                                site_data["contact_information"]["email"] = email_match.group(0)
+                                site_data["contact_information"]["email"] = (
+                                    email_match.group(0)
+                                )
 
                         if not site_data["contact_information"]["phone"]:
-                            phone_match = re.search(r'(?:Phone|Tel|T)[\s:]+([+\d\s-]+)', contact_text, re.IGNORECASE)
+                            phone_match = re.search(
+                                r"(?:Phone|Tel|T)[\s:]+([+\d\s-]+)",
+                                contact_text,
+                                re.IGNORECASE,
+                            )
                             if phone_match:
-                                site_data["contact_information"]["phone"] = phone_match.group(1).strip()
+                                site_data["contact_information"]["phone"] = (
+                                    phone_match.group(1).strip()
+                                )
 
                         if not site_data["contact_information"]["fax"]:
-                            fax_match = re.search(r'(?:Fax|F)[\s:]+([+\d\s-]+)', contact_text, re.IGNORECASE)
+                            fax_match = re.search(
+                                r"(?:Fax|F)[\s:]+([+\d\s-]+)",
+                                contact_text,
+                                re.IGNORECASE,
+                            )
                             if fax_match:
-                                site_data["contact_information"]["fax"] = fax_match.group(1).strip()
+                                site_data["contact_information"]["fax"] = (
+                                    fax_match.group(1).strip()
+                                )
 
                         if not site_data["contact_information"]["address"]:
-                            address_match = re.search(r'Address:?\s*([^\n]+)', contact_text, re.IGNORECASE)
+                            address_match = re.search(
+                                r"Address:?\s*([^\n]+)", contact_text, re.IGNORECASE
+                            )
                             if address_match:
-                                site_data["contact_information"]["address"] = address_match.group(1).strip()
+                                site_data["contact_information"]["address"] = (
+                                    address_match.group(1).strip()
+                                )
 
                 random_delay()
 
@@ -406,12 +494,13 @@ def scrape_website():
             except:
                 pass
 
+
 if __name__ == "__main__":
     try:
         print("Starting scraping process...")
         site_data = scrape_website()
         print("\nSaving data to file...")
-        with open('cfr_gov_mt_data.json', 'w', encoding='utf-8') as f:
+        with open("cfr_gov_mt_data.json", "w", encoding="utf-8") as f:
             json.dump(site_data, f, indent=2, ensure_ascii=False)
         print("Scraping completed successfully!")
         print(f"Total navigation sections: {len(site_data['navigation_sections'])}")
